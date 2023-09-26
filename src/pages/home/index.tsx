@@ -85,7 +85,6 @@ export function Home() {
     try {
       const { posts } = await graphcms.request<{ posts: Post[] }>(query)
 
-      // Ordenar os posts por data (do mais recente para o mais antigo)
       const sortedPosts = posts.slice().sort((a, b) => {
         const dateA = new Date(a.date).getTime()
         const dateB = new Date(b.date).getTime()
