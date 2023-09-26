@@ -138,8 +138,8 @@ export function Home() {
         <div className="w-full md:w-3/4 mt-14 relative mx-auto px-10">
           <div className="min-w-[400px] h-14 bg-neutral-700 relative rounded-t-3xl overflow-hidden">
             <div className="flex justify-between items-center h-full px-10">
-              <span className="text-neutral-100 text-xl font-semibold font-roboto">
-                Ultimos Posts
+              <span className="text-neutral-100 text-xl font-semibold font-robotoslab">
+                Últimos Posts
               </span>
             </div>
           </div>
