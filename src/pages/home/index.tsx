@@ -128,14 +128,14 @@ export function Home() {
       </div>
 
       <div className="fixed top-14 left-0 right-0 bottom-0 flex flex-col md:flex-row">
-        <div className="w-full md:w-1/12 border-r border-green-400 flex flex-col items-center justify-center">
+        <div className="w-full md:w-1/12 border-r border-green-400 hidden md:block">
           {/** AJUSTAR O NOME NO CENTRO */}
           <div className="left-[53px] top-[180px] font-robotoslab mt-96 absolute origin-top-left -rotate-90 text-white text-4xl">
             @Edilson Rogério Cuambe
           </div>
         </div>
 
-        <div className="w-full md:w-3/4 mt-14 relative mx-auto px-10">
+        <div className="w-full md:w-3/4 mt-14 relative mx-auto px-0 md:px-10">
           <div className="min-w-[400px] h-14 bg-neutral-700 relative rounded-t-3xl overflow-hidden">
             <div className="flex justify-between items-center h-full px-10">
               <span className="text-neutral-100 text-xl font-semibold font-robotoslab">

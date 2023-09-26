@@ -38,15 +38,15 @@ export function PostListComponent({ posts }: PostListComponentProps) {
         <NavLink key={index} to={`/post/${post.slug}`}>
           <div className="w-full sm:min-w-[400px] px-10 relative rounded-3xl overflow-hidden transition-all duration-300 ease-in-out hover:scale-105 mt-0 first:mt-10 sm:px-0 sm:mt-0 sm:mb-10">
             <div className="w-full relative">
-              <div className="w-full ml-24 pb-4 top-0 relative font-robotoslab pr-24">
-                <div className="text-base font-bold sm:text-lg md:text-4xl text-green-400">
+              <div className="w-full pb-4 top-0 relative font-robotoslab ml-0 sm:ml-24 pr-0 sm:pr-24">
+                <div className="text-base font-bold sm:text-xl md:text-4xl text-green-400">
                   {post.title}
                 </div>
                 <div className="text-sm sm:text-base md:text-lg text-white">
                   {post.excerpt.split(' ').slice(0, 250).join(' ')}
                 </div>
               </div>
-              <div className="w-full sm:w-20 font-robotoslab absolute top-0 left-0 h-full lg:flex flex-col justify-between sm:justify-start items-center">
+              <div className="w-full sm:w-20 font-robotoslab absolute top-0 left-0 h-full lg:flex flex-col justify-between sm:justify-start items-center hidden sm:block">
                 <div className="left-[53px] top-[180px] absolute origin-top-left -rotate-90 text-white text-md">
                   @{post.author.username}
                 </div>
@@ -59,18 +59,31 @@ export function PostListComponent({ posts }: PostListComponentProps) {
                   <br />
                 </div>
               </div>
-              <div className="md:flex justify-between pl-24 items-center h-full px-10">
+              {/** A DATA E O USUARIO DEVEM FICAR NO CANTO LATERAL DIREITO E NA HORIZONTAL E NÃO NA VERTICAL DO CONTEUDO EM DISPOSITIVOS MENORES */}
+              <div className="sm:hidden w-full flex justify-between items-center h-full px-10 pl-0 sm:pl-24">
+                <div className="text-white text-md">
+                  @{post.author.username}
+                </div>
+                <div className="text-white text-md font-semibold">
+                  {post.date.split('-')[2]}{' '}
+                  {new Date(post.date).toLocaleString('pt-BR', {
+                    month: 'short',
+                  })}
+                  <br />
+                </div>
+              </div>
+              <div className="flex flex-wrap justify-start items-center h-full px-10 mt-3 pl-0 sm:pl-24">
                 {post?.tags?.map((tag, tagIndex) => (
                   <div
                     key={tagIndex}
-                    className="border border-green-400 rounded-md px-4 py-2 text-green-400 font-robotoslab text-md"
+                    className="inline-flex text-xs sm:text-sm text-white border-green-40 border-2 px-2 py-1 rounded-full items-center mr-2 mb-2"
                   >
-                    #
+                    <span className="inline-block">#</span>
                     <img
                       src={tag?.icon?.url}
                       alt={tag?.title}
-                      className="w-4 h-4 inline-block mr-2"
-                    />{' '}
+                      className="w-4 h-4 mr-2 object-contain"
+                    />
                     {tag?.slug}
                   </div>
                 ))}
