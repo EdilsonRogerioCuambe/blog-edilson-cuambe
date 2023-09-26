@@ -85,7 +85,14 @@ export function Home() {
     try {
       const { posts } = await graphcms.request<{ posts: Post[] }>(query)
 
-      const formattedPosts = posts.map((post) => ({
+      // Ordenar os posts por data (do mais recente para o mais antigo)
+      const sortedPosts = posts.slice().sort((a, b) => {
+        const dateA = new Date(a.date).getTime()
+        const dateB = new Date(b.date).getTime()
+        return dateB - dateA
+      })
+
+      const formattedPosts = sortedPosts.map((post) => ({
         ...post,
         tags: post.tags.map((tag) => ({
           id: tag.id,
@@ -104,8 +111,6 @@ export function Home() {
   useEffect(() => {
     fetchPosts()
   }, [fetchPosts])
-
-  console.log(posts)
 
   return (
     <div className="bg-neutral-800 min-h-screen">

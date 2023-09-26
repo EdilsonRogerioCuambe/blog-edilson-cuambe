@@ -59,7 +59,6 @@ export function PostListComponent({ posts }: PostListComponentProps) {
                   <br />
                 </div>
               </div>
-              {/** A DATA E O USUARIO DEVEM FICAR NO CANTO LATERAL DIREITO E NA HORIZONTAL E NÃO NA VERTICAL DO CONTEUDO EM DISPOSITIVOS MENORES */}
               <div className="sm:hidden w-full flex justify-between items-center h-full px-10 pl-0 sm:pl-24">
                 <div className="text-white text-md">
                   @{post.author.username}
