@@ -201,7 +201,7 @@ export function Post() {
               )
             },
           }}
-          rehypePlugins={[rehypeRaw as never]}
+          rehypePlugins={[rehypeRaw]}
         >
           {post.content}
         </ReactMarkdown>
