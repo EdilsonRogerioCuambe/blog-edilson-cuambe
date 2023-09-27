@@ -42,8 +42,6 @@ export function Post() {
   const { slug } = useParams<{ slug: string }>()
   const [post, setPost] = useState<PostData | null>(null)
 
-  document.title = `${post?.title} | Edilson Cuambe`
-
   const fetchPost = useCallback(async () => {
     try {
       const { post } = await graphcms.request<{ post: PostData }>(
@@ -87,6 +85,23 @@ export function Post() {
   useEffect(() => {
     fetchPost()
   }, [fetchPost])
+
+  document
+    .querySelector('meta[property="og:title"]')
+    ?.setAttribute('content', `${post?.title} | Edilson Cuambe`)
+  document
+    .querySelector('meta[property="og:image"]')
+    ?.setAttribute('content', post?.coverImage.url || 'Edilson Cuambe')
+  document
+    .querySelector('link[rel="icon"]')
+    ?.setAttribute('href', post?.coverImage.url || 'Edilson Cuambe')
+  document
+    .querySelector('meta[property="og:description"]')
+    ?.setAttribute('content', post?.excerpt || 'Edilson Cuambe')
+  document.title = `${post?.title} | Edilson Cuambe`
+  document
+    .querySelector('meta[name="description"]')
+    ?.setAttribute('content', post?.excerpt || 'Edilson Cuambe')
 
   if (!post) {
     return (
