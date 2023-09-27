@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { a11yDark } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import styles from './index.module.css'
+import rehypeRaw from 'rehype-raw'
 
 interface PostData {
   id: string
@@ -185,8 +186,9 @@ export function Post() {
               )
             },
           }}
+          rehypePlugins={[rehypeRaw as never]}
         >
-          {`${post.content}`}
+          {post.content}
         </ReactMarkdown>
       </div>
     </div>
