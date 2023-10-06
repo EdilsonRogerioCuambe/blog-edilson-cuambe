@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { FiSearch } from 'react-icons/fi'
 import { GraphQLClient, gql } from 'graphql-request'
 import { PostListComponent } from '../../components/posts'
+import { Link } from 'react-router-dom'
 import './index.module.css'
 
 interface Post {
@@ -129,6 +130,16 @@ export function Home() {
             }
           }}
         />
+        <Link
+          to="/me"
+          className="w-12 flex items-center justify-center text-neutral-100 hover:text-neutral-200"
+        >
+          <img
+            className="rounded-full w-12 h-12 object-cover"
+            src="https://github.com/EdilsonRogerioCuambe.png"
+            alt="Edilson Cuambe"
+          />
+        </Link>
       </div>
 
       <div className="fixed top-14 left-0 right-0 bottom-0 flex flex-col md:flex-row">
