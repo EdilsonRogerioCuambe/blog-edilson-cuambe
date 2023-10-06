@@ -148,7 +148,7 @@ export function Post() {
     <div
       className={`min-h-screen text-white font-robotoslab text-md ${styles.bg}`}
     >
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <div className="max-w-4xl mx-auto px-4 py-8 break-all">
         {/** AUTHOR: NAME, IMAGE, WHEN IT WAS POSTED */}
         <div className="flex items-center justify-between">
           <div className="flex items-center">
@@ -163,17 +163,17 @@ export function Post() {
             </div>
           </div>
           {/** TAGS */}
-          <div className="flex items-center">
+          <div className="flex flex-wrap justify-start items-center h-full px-10 mt-3 pl-0 sm:pl-24">
             {post?.tags?.map((tag, tagIndex) => (
               <div
                 key={tagIndex}
-                className="border border-green-400 rounded-md px-4 py-2 text-green-400 font-robotoslab text-md"
+                className="inline-flex text-xs sm:text-sm text-white border-green-40 border-2 px-2 py-1 rounded-full items-center mr-2 mb-2"
               >
-                #
+                <span className="inline-block">#</span>
                 <img
                   src={tag?.icon?.url}
                   alt={tag?.title}
-                  className="inline w-4 h-4 ml-2"
+                  className="w-4 h-4 mr-2 object-contain"
                 />
                 {tag?.slug}
               </div>
