@@ -55,6 +55,10 @@ export function AboutMe() {
         />
         <p className="mt-4 text-lg font-semibold">{me?.biography}</p>
       </div>
+      <Link to="/" className="flex items-center justify-center text-white">
+        <IoArrowBackSharp className="mr-2" />
+        Voltar
+      </Link>
     </div>
   )
 }
